@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Glance</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="themes/theme.min.css" />
+<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+<link rel="stylesheet" href="style.css">
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script src="Nik_Quiz.js"></script>
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=no; target-densityDpi=device-dpi" />
+<style>
+img {
+    width: 100%;
+    height: auto;
+}
+/* The container */
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 22px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+    position: absolute;
+    opacity: 0;
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+</style>
+</head>
+<body>
+  <div data-role="page" id="Menu"> <!--Main page start-->
+  <h1 align="center">Glance</h1>
+  <article data-role="content">
+<ul data-role="listview" data-filter = "true">
+  <li>
+<a href ="#math">
+<img src="Images/maths.png" alt="Maths">
+  <h1>Maths</h1>
+<p>Learn Maths</P>
+</a>
+</li>
+<li>
+<a href ="#chem">
+<img src="Images/chem.png" alt="Chemistry">
+<h1>Chemistry</h1>
+<p>Learn Chemistry</P>
+</a>
+</li>
+<li>
+<a href ="#phy">
+<img src="Images/phy.png" alt="Physics">
+<h1>Physics</h1>
+<p>Learn Physics</P>
+</a>
+</li>
+</ul>
+</article>
+<footer data-role="footer" data-position="fixed">
+<nav data-role="navbar">
+<ul>
+<li><a href ="#Menu" data-icon="home">Home</a></li>
+<li><a href ="#about" data-icon="info">About Us</a></li>
+</ul>
+</nav>
+</footer>
+</div> <!--Main page ends-->
+<div data-role="page" id="math"><!--Maths page starts-->
+<header data-role="header">
+  <a href = "#Menu">Main Menu</a>
+  <h1>Maths</h1>
+</header>
+<article data-role="content">
+<ul data-role="listview">
+<li>
+<a href ="#maths">
+<h1>Maths Formulas</h1>
+<!--<img src="Images/maths.png" alt="MATHS">-->
+</a>
+</li>
+<li>
+<a href ="#mathsquiz">
+<h1>Quiz</h1>
+<!--<img src="Images/maths.png" alt="MATHS">-->
+</a>
+</li>
+</ul>
+</article>
+<footer data-role="footer" data-position="fixed">
+<nav data-role="navbar">
+<ul>
+<li><a href ="#Menu" data-icon="home">Home</a></li>
+
+</ul>
+</nav>
+</footer>
+</div><!--Maths page ends-->
+<div data-role="page" id="maths"><!--formula page starts-->
+<header data-role="header">
+    <a href = "#math">Back</a>
+  <h1>Maths Formulas</h1>
+</header>
+<article data-role="content">
+<ul data-role="listview">
+<li>
+<a href ="#algebra">
+<h1>Algebra</h1>
+<!--<img src="Images/maths.png" alt="MATHS">-->
+</a>
+</li>
+<li>
+<a href ="#geometry">
+<h1>Geometry</h1>
+</a>
+</li>
+</ul>
+</article>
+</div><!--Maths page ends-->
+
+<div data-role="page" id="mathsquiz"><!--Quiz maths page starts-->
+<header data-role="header">
+  <a href = "#math">Back</a>
+  <h1>Maths Quiz</h1>
+</header>
+<article>
+  <h3>MATHS QUIZ</h3>
+      <form id="quiz" name="quiz">
+        <p>1. If f(x) = 3x<sup>3</sup> − 7x + 5, then f(−1) = </p>
+        <input type="radio" id="mc" name="question1" value="1">1<br>
+        <input type="radio" id="mc" name="question1" value="2">-1<br>
+        <input type="radio" id="mc" name="question1" value="3">9<br>
+        <input type="radio" id="mc" name="question1" value="4">8<br>
+
+
+        <p>2. If x = −2 and y = −1, then x<sup>3</sup> − 2y = </p>
+        <input type="radio" id="mc" name="question2" value="1">6<br>
+        <input type="radio" id="mc" name="question2" value="2">-10<br>
+        <input type="radio" id="mc" name="question2" value="3">-6<br>
+        <input type="radio" id="mc" name="question2" value="4">10<br>
+
+        <p>3. 2<sup>8</sup>  * 2<sup>8</sup>  = </p>
+        <input type="radio" id="mc" name="question3" value="1">4<sup>16</sup><br>
+        <input type="radio" id="mc" name="question3" value="2">2<sup>64</sup><br>
+        <input type="radio" id="mc" name="question3" value="3">4<sup>8</sup> <br>
+        <input type="radio" id="mc" name="question3" value="4">2<sup>16</sup><br>
+
+        <p>4. Evaluate the expression: −10 − 4 × 12 + 5 </p>
+        <input type="radio" id="mc" name="question4" value="1">5<br>
+        <input type="radio" id="mc" name="question4" value="2">0<br>
+        <input type="radio" id="mc" name="question4" value="3">-2<br>
+        <input type="radio" id="mc" name="question4" value="4">-6<br>
+
+        <p>5. (3x – 2)(4x + 1) = </p>
+        <input type="radio" id="mc" name="question5" value="1"> 12x<sup>2</sup> – 8x – 2<br>
+        <input type="radio" id="mc" name="question5" value="2">12x<sup>2</sup> + 5x – 2<br>
+        <input type="radio" id="mc" name="question5" value="3">x<sup>2</sup> – 5x – 2<br>
+        <input type="radio" id="mc" name="question5" value="4">12x<sup>2</sup> – 5x – 2<br>
+
+            <p>6. The ordered pair (3,0) is found:</p>
+              <input type="radio" id="mc" name="question6" value="1">on the y-axis.<br>
+              <input type="radio" id="mc" name="question6" value="2">in the first quadrant.<br>
+              <input type="radio" id="mc" name="question6" value="3">in the four quadrant<br>
+              <input type="radio" id="mc" name="question6" value="4">on the x-axis<br>
+
+        <input type="button" id="button" value="Submit" onclick="check();">
+
+      </form>
+
+      <div id="after_submit">
+        <p id="number_correct"></p>
+      </div>
+
+</article>
+
+</div><!--Quiz Maths page ends-->
+
+<div data-role="page" id="algebra"><!--algebra page starts-->
+<header data-role="header">
+  <a href ="#maths">Back</a>
+  <h1>Algebra</h1>
+</header>
+<article data-role="content">
+<ul>
+  	<li><a href="#algebra">Algebra</a></li>
+  	<li><a href="#power">Powers</a></li>
+  	<li><a href="#rules">Rules of Zero</a></li>
+  	<li><a href="#4">Linear Equation</a></li>
+  	<li><a href="#5">Math Formulas</a></li>
+  </ul>
+<hr />
+
+<h1><a name="algebra"></a>Algebra</h1>
+  <ul>
+  <li>(a+b)² = a² + 2ab + b²</li>
+  <li>(a – b)2  = a2 – 2ab + b2</li>
+  <li>(a + b) (a – b) = a2 – b2</li>
+  <li>(x + a)(x + b)  = x2 + (a + b)x + ab</li>
+  <li>(x + a)(x – b)  = x2 + (a – b)x – ab</li>
+  <li>(x – a)(x + b)  = x2 + (b – a)x – ab</li>
+  <li>(x – a)(x – b)  = x2  – (a + b)x + ab</li>
+  <li>(a + b)3  = a3 + b3 + 3ab(a + b)</li>
+  <li>(a – b)3  =  a3 – b3 – 3ab(a – b)</li>
+  <li>(x + y + z) 2  = x2 + y2 + z2 + 2xy + 2yz + 2xz</li>
+  <li>(x + y – z) 2  =  x2 + y2 + z2 + 2xy – 2yz – 2xz</li>
+  <li>(x – y + z)2  = x2 + y2 + z2 – 2xy – 2yz + 2xz</li>
+  <li>(x – y – z)2  = x2 + y2 + z2 – 2xy +  2yz – 2xz</li>
+  <li>x3 + y3 + z3 – 3xyz  = (x + y + z)(x2 + y2 + z2 – xy – yz -xz)</li>
+  <li>x2 + y2  = 1212 [(x + y)2 + (x – y)2]</li>
+  <li>(x + a) (x + b) (x + c) = x3 + (a + b +c)x2 + (ab + bc + ca)x + abc</li>
+  <li>x3 + y3 = (x + y) (x2 – xy + y2)</li>
+  <li>x3 – y3  = (x – y) (x2 + xy + y2)</li>
+  <li>x2 + y2 + z2 -xy – yz – zx = 1212 [(x-y)2 + (y-z)2 + (z-x)2]</li>
+</ul>
+<hr />
+
+<h1><a name="power"></a>Powers</h1>
+<ul>
+<li>  amxan  = am+n</li>
+<li>  (am)n  =  amn</li>
+<li>  (ambn)p =   ampb np</li>
+<li>  a-m = 1am1am</li>
+<li>  amn=am−−−√namn=amn</li>
+</ul>
+<hr />
+<h1><a name="rules"></a>Rules of Zero</h1>
+<ul>
+<li>a1  = a</li>
+
+<li>a0 = 1</li>
+
+<li>a*0 = 0</li>
+
+<li>a is undefined</li>
+</ul>
+<h1>Linear Equation</h1>
+<ul>
+<li>Linear equation in one variable ax + b = 0, x = – −ba−ba</li>
+
+<li>Quadratic Equation:  ax2 + bx + c  = 0  x  = −b±b2−4ac√2a−b±b2−4ac2a</li>
+
+<li>Discriminant D = b2 – 4ac</li>
+</ul>
+
+</article>
+
+</div><!--algebras page ends-->
+
+<div data-role="page" id="geometry"><!--geometry page starts-->
+<header data-role="header">
+<a href ="#maths">Back</a>
+  <h1>Geometry</h1>
+  </header>
+  <article>
+  <p>
+    Right Triangle and Pythagora's theorem
+
+    Pythagora's theorem: The two sides a and b of a right triangle and the hypotenuse c are related by
+
+    a 2 + b 2 = c 2
+  </p>
+  <img src="Images/right_triangle.gif" alt="right_triangle">
+<hr />
+  <p>
+Area and Perimeter of Triangle
+  </p>
+    <img src="Images/perimeter.gif" alt="perimeter">
+    <p>
+
+Perimeter = a + b + c
+
+There are several formulas for the area.
+
+If the base b and the corresponding height h are known, we use the formula<br>
+
+Area = (1 / 2) * b * h<br>
+
+If two sides and the angle between them are known, we use one of the formulas, depending on which side and which angle are known<br>
+
+Area = (1 / 2)* b * c sin A<br>
+
+Area = (1 / 2)* a * c sin B<br>
+
+Area = (1 / 2)* a * b sin C .<br>
+
+If all three sides are known, we may use Heron's formula for the area.<br>
+
+Area = sqrt [ s(s - a)(s - b)(s - c) ] , where s = (a + b + c)/2.<br>
+    </p>
+    <hr />
+<p>
+  Area and Perimeter of Rectangle
+</p>
+      <img src="Images/square.gif" alt="square">
+
+<p>  Perimeter = 2L + 2W<br>
+
+  Area = L * W
+
+
+</p>
+  </article>
+
+
+</div><!--geometry page ends-->
+
+<div data-role="page" id="chem"><!--CHEMISTRY page starts-->
+<header data-role="header">
+  <a href = "#Menu">Main Menu</a>
+  <h1>Chemistry</h1>
+</header>
+<article data-role="content">
+<ul data-role="listview">
+<li>
+<a href ="#basics">
+<h1>Chemistry Basics</h1>
+<!--<img src="Images/maths.png" alt="MATHS">-->
+</a>
+</li>
+<li>
+<a href ="#video">
+<h1>Chemistry Video Tutorials</h1>
+<!--<img src="Images/maths.png" alt="MATHS">-->
+</a>
+</li>
+</ul>
+</article>
+<footer data-role="footer" data-position="fixed">
+<nav data-role="navbar">
+<ul>
+<li><a href ="#Menu" data-icon="home">Home</a></li>
+
+</ul>
+</nav>
+</footer>
+</div><!--CHEMISTRY page ends-->
+
+<div data-role="page" id="basics"><!--algebra page starts-->
+<header data-role="header">
+  <a href ="#chem">Back</a>
+  <h1>Chemistry Basics</h1>
+</header>
+<article>
+<p align ="justify"><b>The idea of the atom</b><br>
+  The parallel concepts of the element and the atom constitute the very foundations of chemical science.<br >
+  An element is an actual physical substance that cannot be broken down into a simpler form capable of an independent existence as observable matter. As such, the concept of the element is a macroscopic one that relates to the world that we can observe with our senses.
+  The atom is the microscopic realization of this concept; that is, it is the actual physical particle that is unique to each chemical element. Their very small size has long prevented atoms from being observable by direct means, so their existence was not universally accepted until the late 19th Century. The fact that we still hear mention of the "atomic theory of matter" should not imply that there is now any doubt about the existence of atoms; f ew theories in the history of science have been as thoroughly validated and are as well understood.
+</p>
+
+<p align = "justify">
+  <b>How are the elements organized?</b><br>
+  Two general organizing principles developed in the 19th Century: one was based on the increasing relative weights (atomic weights) of the elements, yielding a list that begins this way:<br><br>
+
+<b>  H  He  Li  Be  B  C  N  O  F  Ne  Na  Mg  Al  Si  P  S  Cl ...</b><br><br>
+
+<img src="Images/chem2.jpg" alt="chem2" width="460" height="345" ><br>
+
+
+</p>
+
+
+</article>
+</div>
+
+<div data-role="page" id="video"><!--algebra page starts-->
+<header data-role="header">
+  <a href ="#chem">Back</a>
+  <h1>Video Tutorials</h1>
+</header>
+<article>
+<h3>Introduction to chemistry</h3>
+<div class="video-responsive">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Rd4a1X3B61w" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<hr />
+
+<h3>Elements and atoms</h3>
+<div class="video-responsive">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IFKnq9QM6_A" frameborder="0" allowfullscreen></iframe>
+</div>
+<hr />
+
+<h3>Introduction to the atom</h3>
+
+<div class="video-responsive">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1xSQlwWGT8M" frameborder="0" allowfullscreen></iframe>
+</div>
+</article>
+
+</div>
+
+
+<div data-role="page" id="phy"><!--PHYSICS page starts-->
+<header data-role="header">
+  <a href = "#Menu">Main Menu</a>
+  <h1>Physics</h1>
+</header>
+<article data-role="content">
+<ul data-role="listview">
+<li>
+<a href ="#form">
+<h1>Physics Formulas</h1>
+<!--<img src="Images/maths.png" alt="MATHS">-->
+</a>
+</li>
+<li>
+<a href ="#pquiz">
+<h1>Quiz</h1>
+<!--<img src="Images/maths.png" alt="MATHS">-->
+</a>
+</li>
+</ul>
+</article>
+<footer data-role="footer" data-position="fixed">
+<nav data-role="navbar">
+<ul>
+<li><a href ="#Menu" data-icon="home">Home</a></li>
+</ul>
+</nav>
+</footer>
+</div><!--PHYSICS page ends-->
+
+<div data-role="page" id="form"><!--algebra page starts-->
+<header data-role="header">
+  <a href ="#phy">Back</a>
+  <h1>Physics Formulas</h1>
+</header>
+<article>
+<p align ="justify"><b>Mechanics</b><br>
+<ul>
+<li>Velocity, v = ds/dt</li>
+<li>Acceleration, a = dv/dt</li>
+<li>Weight, w = mg</li>
+<li>Momentum, p = mv</li>
+</ul>
+</p>
+
+<p align ="justify"><b>Thermal Physics</b><br>
+<ul>
+<li>Entropy, s = k logw</li>
+<li>Solid expansion</li>
+<li>Δℓ = αℓ0ΔT</li>
+<li>ΔA = 2αA0ΔT</li>
+<li>ΔV = 3αV0ΔT</li>
+<li>Liquid expansion</li>
+<li>ΔV = βV0ΔT</li>
+<li>Latent heat, Q = mL</li>
+<li>Ideal gas law, PV = nRT</li>
+</ul>
+</p>
+
+<p align ="justify"><b>Waves and Optics</b><br>
+<ul>
+<li>Periodic waves, v = ƒλ</li>
+<li>Frequency, ƒ = 1/T</li>
+<li>Beat frequency, fbeat = fhigh − flow</li>
+<li>Intensity, I = ⟨P⟩/A</li>
+</ul>
+</p>
+
+</article>
+</div>
+
+<div data-role="page" id="pquiz"><!--algebra page starts-->
+
+
+  <form id="quiz1" name="quiz1">
+        <p>1. When a rock thrown straight upwards gets to the exact top of its path, its</p>
+        <input type="radio" id="mc" name="question1" value="1">velocity is zero and its acceleration is zero<br>
+        <input type="radio" id="mc" name="question1" value="2">velocity is zero and its acceleration is about 10 m/s2<br>
+        <input type="radio" id="mc" name="question1" value="3">velocity is about 10 m/s and its acceleration is zero<br>
+        <input type="radio" id="mc" name="question1" value="4">velocrty is about l0 m/s and is acceleration is about 10 mis2<br>
+
+        <p>2. According to Newton's law of inerti4 arail road nain in motion should continue going forever even if its engine is turned off. We never observe this because railroad tains</p>
+        <input type="radio" id="mc" name="question2" value="1">move too slowly<br>
+        <input type="radio" id="mc" name="question2" value="2">are much too heavy<br>
+        <input type="radio" id="mc" name="question2" value="3">must so up and down hills<br>
+        <input type="radio" id="mc" name="question2" value="4">have forces that oppose their motion<br>
+
+        <p>3. While a car travels around a circular-frack at constant speed, its</p>
+        <input type="radio" id="mc" name="question3" value="1">acceleration is zero<br>
+        <input type="radio" id="mc" name="question3" value="2">velocity is zero<br>
+        <input type="radio" id="mc" name="question3" value="3">both of these> <br>
+        <input type="radio" id="mc" name="question3" value="4">none of these<br>
+
+        <p>4. Your car is coasting on level ground at 25 mi/hr and you apply the brakes until the car slows to 10 mi/hr. If you suddenly release the brakes now, the car tends to</p>
+        <input type="radio" id="mc" name="question4" value="1">momentarily regain its higher initial speed<br>
+        <input type="radio" id="mc" name="question4" value="2">continue moving at 10 mi/hr<br>
+        <input type="radio" id="mc" name="question4" value="3">decrease in speed ifno other forces act<br>
+        <input type="radio" id="mc" name="question4" value="4">increase in speed ifno other forces act<br>
+
+        <p>5. As a ball falls, the action force is the pull of the Earth's mass on the ball. The reaction force is</p>
+        <input type="radio" id="mc" name="question5" value="1">the air resistance acting againsthe ball<br>
+        <input type="radio" id="mc" name="question5" value="2">the acceleration of the ball<br>
+        <input type="radio" id="mc" name="question5" value="3">the pull of the ball's mass on the Earth<br>
+        <input type="radio" id="mc" name="question5" value="4">non-existent in this case<br>
+
+        <p>6. An object is dropped from rest. If we do not ignore air resistance, as the object falls, its velocity increases and its acceleration</p>
+        <input type="radio" id="mc" name="question6" value="1">increases<br>
+        <input type="radio" id="mc" name="question6" value="2">decreases<br>
+        <input type="radio" id="mc" name="question6" value="3">remains the same whether in air or in vacuum<br>
+        <input type="radio" id="mc" name="question6" value="4">remains same in the air, but changes in vacuum<br>
+
+        <p>7. Solid matter is mostly empty space. The reason solids don't fall through one another is because</p>
+        <input type="radio" id="mc" name="question7" value="1">atoms are constantly vibrating<br>
+        <input type="radio" id="mc" name="question7" value="2">of nuclear forces<br>
+        <input type="radio" id="mc" name="question7" value="3">of gravitational forces<br>
+        <input type="radio" id="mc" name="question7" value="4">electrical forces<br>
+
+        <p>8. A ball is thrown straight upwards. What kind of energy does it have at its highest point?</p>
+        <input type="radio" id="mc" name="question8" value="1">only potential energy<br>
+        <input type="radio" id="mc" name="question8" value="2">only kinetic energy<br>
+        <input type="radio" id="mc" name="question8" value="3">both potential and kinetic energy<br>
+        <input type="radio" id="mc" name="question8" value="3">none of these<br>
+
+        <p>9. The source of all maenetism is</p>
+        <input type="radio" id="mc" name="question9" value="1">tiny pieces of iron<br>
+        <input type="radio" id="mc" name="question9" value="2">moving electric charge<br>
+        <input type="radio" id="mc" name="question9" value="3">neutrons<br>
+        <input type="radio" id="mc" name="question9" value="4">12x<sup>2</sup>none of these<br>
+
+        <p>10. Magnetic domains normally occur in</p>
+        <input type="radio" id="mc" name="question10" value="1">iron<br>
+        <input type="radio" id="mc" name="question10" value="2">copper<br>
+        <input type="radio" id="mc" name="question10" value="3">silver<br>
+        <input type="radio" id="mc" name="question10" value="4">all of these<br>
+
+        <input type="button" id="button" value="Submit" onclick="check1();">
+
+  </form>
+  <div id="after_submit1">
+        <p id="number_correct1"></p>
+      </div>
+</div>
+
+
+
+<div data-role="page" id="about"><!--About us page starts-->
+<header data-role="header">
+<a href ="#Menu">Main Menu</a>
+  <h1>About Us</h1>
+  </header>
+  <p>Idea behind this app:</p>
+  <p>This app is designed with the main focus on helping students with maximum of the formulas,  along with their explanations, with examples and best links for online tutorials. Main significance of our app would be a quick revision for the students who are going to appear for the examinations.</p>
+  <p>Scope, as we see it:</p>
+  <p>This app will prove to be a one point reference to the students. This will reduce the load of referring books for different subjects, and also the efforts to find solutions on different websites.</p>
+  <p>Developers:</p>
+  <li>Aniket Dharmik</li>
+  <li>Nikhil Kanojia</li>
+  <li>Vinitkumar Surati</li>
+
+
+</div>
+
+
+
+
+</body>
+</html>
